@@ -450,6 +450,7 @@ class XMPPBackend(ErrBot):
         self.callback_message(msg)
 
     def _idd_from_event(self, event):
+        log.debug("building presence from event: %s", event)
         txtrep = event['from'].full
         return self._build_room_occupant(txtrep) if 'muc' in event else self._build_person(txtrep)
 
